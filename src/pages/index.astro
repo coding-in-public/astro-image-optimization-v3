@@ -1,12 +1,35 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import astroImage from "../assets/3astro.png";
+import { Image, getImage } from "astro:assets";
+import ResponsiveImage from "../components/ResponsiveImage.astro";
+
+const optimizedImage = await getImage({ src: astroImage, format: "avif" });
 ---
 
 <Layout title="Welcome to Astro.">
-  <main>
+  <main style=`background-image: url(${optimizedImage.src})`>
     <h1>Welcome to <span class="text-gradient">Astro Images</span></h1>
-    <img src="/3astro.png" alt="Astro 3 launch" />
+    <ResponsiveImage
+      src={astroImage}
+      sizes={[400, 700, 900]}
+      alt="Astro image"
+      format="avif"
+    />
+    <Image src="/astro-icon.png" alt="Astro Icon" width={698} height={740} />
+    <Image
+      src="https://astro.build/_astro/astro-vercel-header.4686b8af.webp"
+      alt="Astro Icon"
+      width={579}
+      height={248}
+    />
+    <Image
+      src={astroImage}
+      alt="Astro 3 launch"
+      format="avif"
+      quality={"mid"}
+    />
     <ul role="list" class="link-card-grid">
       <Card
         href="https://docs.astro.build/guides/images/"

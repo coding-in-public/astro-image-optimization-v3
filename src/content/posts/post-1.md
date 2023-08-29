@@ -5,3 +5,5 @@ coverAlt: "Astro 3.0 is out"
 ---
 
 Astro 3 is out! 🚀
+
+![Astro 3 is out](./3astro.png)
