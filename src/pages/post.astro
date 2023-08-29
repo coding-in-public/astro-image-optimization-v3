@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getEntry } from "astro:content";
+const post = await getEntry("posts", "post-1");
+
+const { Content } = await post.render();
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <h1>{post.data.title}</h1>
+    <Content />
+  </main>
+</Layout>
